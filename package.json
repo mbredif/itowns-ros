@@ -1,16 +1,19 @@
 {
-  "name": "monproj",
+  "name": "itowns-ros",
   "version": "1.0.0",
-  "description": "mon projet itowns avec webpack",
+  "description": "ROS Provider for iTowns",
   "main": "src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode development --progress",
-    "autobuild": "webpack --mode development --progress --watch",
-    "server": "webpack-dev-server --open --hot --inline"
+    "build": "webpack -p --progress",
+    "autobuild": "webpack -p --progress --watch",
+    "start": "webpack-dev-server -p --hot --inline --watch",
+    "preinstall": "npm install ../ros3djs/"
   },
-  "author": "MoiJeMoiJeMoiJe",
-  "license": "ISC",
+  "repository": "mbredif/itowns-ros",
+  "bugs": "https://github.com/mbredif/itowns-ros/issues",
+  "author": "Mathieu Brédif",
+  "license": "(CECILL-B OR MIT)",
   "devDependencies": {
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
@@ -19,6 +22,8 @@
   "dependencies": {
     "itowns": "^2.3.0",
     "proj4": "^2.4.4",
+    "ros3d": "file:../ros3djs",
+    "roslib": "^0.20.0",
     "three": "^0.89.0",
     "three.meshline": "^1.0.3"
   }

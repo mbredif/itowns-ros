@@ -1,4 +1,3 @@
-# simplest itowns example using webpack
+# ROS provider for itowns
 
-This is an illustration of the small tutorial in docs-misc
-https://github.com/itownsResearch/docs-misc/wiki/Mise-en-place-d'un-environnement-de-d%C3%A9veloppement
+itowns-ros offers ROSProvider, a new itowns Provider that connects to a rosbridge server through the roslibjs library.
