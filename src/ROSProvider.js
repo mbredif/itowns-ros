@@ -39,6 +39,7 @@ function preprocessDataLayer(layer, view, scheduler) {
 
         // necessary for picking ???
         layer.client.rootObject.traverse((obj) => {
+            obj.frustumCulled = false;
             obj.layer = layer.id;
             obj.layers.set(layer.threejsLayer);
         });
