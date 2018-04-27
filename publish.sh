@@ -20,7 +20,7 @@ npm install
 npm run build
 
 # push a "publication" commit to master
-git add -f dist/*.js
+git add -f dist node_modules/itowns/dist/itowns.js
 git commit -m "publication"
 git push
 

@@ -3,25 +3,27 @@
 <head>
     <meta charset="utf-8" />
     <title>iTowns + ROS</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div id="viewerDiv"></div>
-    <script src="dist/itowns-ros.js"></script>
+    <script src="../node_modules/itowns/dist/itowns.js"></script>
+    <script src="../dist/itowns-ros.js"></script>
     <script>
         let viewerDiv = document.getElementById('viewerDiv');
         let positionInit = { longitude: 8.4231264876313, latitude: 49.011068752384, altitude: 112};
         let globeView = new itowns.GlobeView(viewerDiv, positionInit);
 
-        ROSProvider.register(globeView);
+        itownsRos.ROSProvider.register(globeView);
+        var THREE = itowns.THREE;
 
         var object3d = new THREE.Mesh(
             new THREE.SphereGeometry( 1, 32, 32 ),
             new THREE.MeshBasicMaterial( {color: 0x0000ff, depthTest: false} )
         );
 
-        itowns.Fetcher.json('./layers/JSONLayers/OPENSM.json').then(globeView.addLayer.bind(globeView));
-        itowns.Fetcher.json('./layers/JSONLayers/IGN_MNT.json').then(globeView.addLayer.bind(globeView));
+        itowns.Fetcher.json('../node_modules/itowns/examples/layers/JSONLayers/OPENSM.json').then(globeView.addLayer.bind(globeView));
+        itowns.Fetcher.json('../node_modules/itowns/examples/layers/JSONLayers/IGN_MNT.json').then(globeView.addLayer.bind(globeView));
         
         var params = new URL(window.location.href).searchParams;
         var port = params.get("port") || "9090";
